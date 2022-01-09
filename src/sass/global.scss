@@ -20,4 +20,73 @@ html {
 body {
   box-sizing: border-box;
   padding: 0rem;
+  font-family: Montserrat;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #291507;
+}
+
+input {
+  &::placeholder {
+    color: #291507;
+  }
+}
+
+.app-container {
+  margin: 0 9.6rem;
+}
+
+.header {
+  &__intro {
+    border-radius: 3.2rem;
+    overflow: hidden;
+    &__top {
+      background-image: url('../../public/HeroImagemd.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      padding: 8rem;
+      &__text-container {
+        margin-bottom: 3.2rem;
+        &__text {
+          color: white;
+          font-size: 2.4rem;
+        }
+      }
+    }
+    &__bottom {
+      background-color: #e3e1dc;
+    }
+    &__logo {
+      color: white;
+      fill: currentColor;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 86px;
+      width: 256px;
+    }
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  height: 9.6rem;
+  &__logo {
+    color: black;
+    fill: currentColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 43px;
+    width: 128px;
+  }
+}
+
+.search {
+  padding: 2.4rem 3.2rem;
+  border-radius: 9999px;
+  font-size: 1.8rem;
+  outline: none;
 }
