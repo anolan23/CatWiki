@@ -26,7 +26,12 @@ body {
   color: #291507;
 }
 
+h1 {
+  font-size: 4.8rem;
+}
+
 input {
+  font-family: inherit;
   &::placeholder {
     color: #291507;
   }
@@ -38,19 +43,27 @@ input {
 
 .header {
   &__intro {
-    border-radius: 3.2rem;
+    border-radius: 4rem;
     overflow: hidden;
     &__top {
+      display: flex;
+      align-items: center;
       background-image: url('../../public/HeroImagemd.png');
       background-size: cover;
       background-repeat: no-repeat;
-      background-position: center;
-      padding: 8rem;
-      &__text-container {
-        margin-bottom: 3.2rem;
-        &__text {
-          color: white;
-          font-size: 2.4rem;
+      background-position: right;
+      height: 50rem;
+      &__content {
+        display: flex;
+        flex-direction: column;
+        width: 35rem;
+        margin-left: 8rem;
+        &__text-container {
+          margin-bottom: 3.2rem;
+          &__text {
+            color: white;
+            font-size: 2.4rem;
+          }
         }
       }
     }
@@ -65,6 +78,7 @@ input {
       align-items: center;
       height: 86px;
       width: 256px;
+      margin-bottom: 1.6rem;
     }
   }
 }
@@ -83,10 +97,33 @@ input {
     width: 128px;
   }
 }
-
+.search-container {
+  position: relative;
+}
 .search {
+  width: 100%;
   padding: 2.4rem 3.2rem;
   border-radius: 9999px;
   font-size: 1.8rem;
   outline: none;
+  border: none;
+  padding-right: 50px;
+  &__icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 0;
+    right: 2.4rem;
+    height: 100%;
+  }
+}
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+  &__image {
+    object-fit: cover;
+  }
+  &__caption {
+  }
 }
