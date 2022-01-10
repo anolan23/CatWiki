@@ -56,7 +56,6 @@ router.get('/api/breeds/trending', async (req, res) => {
       FROM searches
       GROUP BY query
       ORDER BY search_count DESC
-      OFFSET 0
       LIMIT $1
     `,
       [limit]
