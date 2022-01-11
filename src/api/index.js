@@ -38,9 +38,7 @@ export async function searchBreeds(q, limit) {
 
 export async function logBreedSearch(query) {
   try {
-    const response = await axios.post(`/api/breeds/search`, {
-      query,
-    });
+    const response = await axios.post(`/api/breeds/search`, { query });
     return response.data;
   } catch (error) {
     console.error(error);

@@ -34,6 +34,7 @@ router.get('/api/breeds/search', async (req, res) => {
 
 router.post('/api/breeds/search', async (req, res) => {
   try {
+    console.log(req.body);
     const { query } = req.body;
     const { rows } = await db.query(
       `
@@ -57,7 +58,7 @@ router.get('/api/breeds/trending', async (req, res) => {
       SELECT query, count(*) as search_count
       FROM searches
       GROUP BY query
-      ORDER BY search_count DESC
+      ORDER BY search_count DESC, query
       LIMIT $1
     `,
       [limit]
@@ -84,7 +85,6 @@ router.get('/api/breeds/trending', async (req, res) => {
 router.get('/api/breeds/:name', async (req, res) => {
   try {
     const { name } = req.params;
-    console.log(name);
     const { data } = await catWiki.get('/breeds/search', {
       params: {
         name,

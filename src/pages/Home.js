@@ -5,7 +5,7 @@ import { getTrending } from '../api';
 import Image from '../components/Image';
 import Search from '../components/Search';
 
-function Home() {
+function Home(props) {
   const [breeds, setBreeds] = useState(null);
   const navigate = useNavigate();
 
@@ -31,7 +31,6 @@ function Home() {
       );
     });
   };
-
   return (
     <div className="home">
       <header className="header">
@@ -46,7 +45,7 @@ function Home() {
                   Get to know more about your cat breed
                 </p>
               </div>
-              <Search />
+              <Search navigate={navigate} />
             </div>
           </div>
           <div className="header__intro__bottom">
@@ -74,7 +73,7 @@ function Home() {
         <div className="question-section">
           <div className="question-section__text">
             <div className="horizontal"></div>
-            <h1>Why should you have a cat?</h1>
+            <h1>Why should you own a cat?</h1>
             <p>
               Having a cat around you can actually trigger the release of
               calming chemicals in your body which lower your stress and anxiety
