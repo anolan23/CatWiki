@@ -1,11 +1,11 @@
-function Image({ src, caption }) {
+function Image({ src, caption, onClick }) {
   return (
-    <div className="image-container">
+    <div className="image-container" onClick={onClick}>
       <div
         className="image-container__image"
         style={{ backgroundImage: `url(${src})` }}
       />
-      <span className="image-container__caption">{caption}</span>
+      {caption && <span className="image-container__caption">{caption}</span>}
     </div>
   );
 }

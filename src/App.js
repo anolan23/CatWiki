@@ -13,8 +13,8 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" exact element={<Home />} />
-          <Route path="/breeds" exact element={<Breeds />} />
-          <Route path="/trending" exact element={<Trending />} />
+          <Route path="/breeds/:name" element={<Breeds />} />
+          <Route path="/trending" element={<Trending />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -12,3 +12,12 @@ export async function getTrending(limit) {
     console.error(error);
   }
 }
+
+export async function getBreed(name) {
+  try {
+    const response = await axios.get(`/api/breeds/${name}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}

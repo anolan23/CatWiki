@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { getTrending } from '../api';
 import Image from '../components/Image';
 
 function Home() {
   const [breeds, setBreeds] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     (async function () {
@@ -13,12 +14,20 @@ function Home() {
       setBreeds(breeds);
     })();
   }, []);
-  console.log(breeds);
 
   const renderBreeds = () => {
     if (!breeds) return null;
     return breeds.map((breed, index) => {
-      return <Image key={index} src={breed.image.url} caption={breed.name} />;
+      return (
+        <Image
+          key={index}
+          src={breed.image.url}
+          caption={breed.name}
+          onClick={() => {
+            navigate(`/breeds/${breed.name}`);
+          }}
+        />
+      );
     });
   };
 

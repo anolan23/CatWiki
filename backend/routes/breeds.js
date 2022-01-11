@@ -72,4 +72,31 @@ router.get('/api/breeds/trending', async (req, res) => {
   }
 });
 
+router.get('/api/breeds/:name', async (req, res) => {
+  try {
+    const { name } = req.params;
+    console.log(name);
+    const { data } = await catWiki.get('/breeds/search', {
+      params: {
+        name,
+      },
+    });
+    const [breed] = data;
+    const response = await catWiki.get(`/images/search`, {
+      params: {
+        size: 'med',
+        limit: 8,
+        format: 'json',
+        breed_id: breed.id,
+      },
+    });
+    const images = response.data.map((image) => image.url);
+    breed.images = images;
+
+    res.send(breed);
+  } catch (error) {
+    res.status(error.status || 500).send({ error: error.message });
+  }
+});
+
 module.exports = router;
