@@ -19,13 +19,14 @@ router.get('/api/breeds', async (req, res) => {
 
 router.get('/api/breeds/search', async (req, res) => {
   try {
-    const { q } = req.query;
-    const response = await catWiki.get('/breeds/search', {
+    const { q, limit } = req.query;
+    const { data } = await catWiki.get('/breeds/search', {
       params: {
         q,
       },
     });
-    res.send(response.data);
+    const results = limit ? data.slice(0, limit) : data;
+    res.send(results);
   } catch (error) {
     res.status(error.status || 500).send({ error: error.message });
   }
@@ -34,14 +35,15 @@ router.get('/api/breeds/search', async (req, res) => {
 router.post('/api/breeds/search', async (req, res) => {
   try {
     const { query } = req.body;
-    await db.query(
+    const { rows } = await db.query(
       `
         INSERT INTO searches (query)
         VALUES ($1)
+        RETURNING *
     `,
       [query]
     );
-    res.status(200).send();
+    res.send(rows[0]);
   } catch (error) {
     res.status(error.status || 500).send({ error: error.message });
   }
@@ -60,11 +62,18 @@ router.get('/api/breeds/trending', async (req, res) => {
     `,
       [limit]
     );
-    const trending = rows.map((search) => search.query);
-    const response = await catWiki.get('/breeds');
-    const breeds = response.data.filter((breed) =>
-      trending.includes(breed.name)
-    );
+    const trending = rows.map((search) => search.query); // ['minx', 'tabby', 'burmese']
+    const { data: allBreeds } = await catWiki.get('/breeds'); // all breeds [{}, {}, {}]
+    //only keep trending breeds from breeds array
+    // const breeds = response.data.filter((breed) =>
+    //   trending.includes(breed.name)
+    // );
+
+    const breeds = trending
+      .map((breed) => {
+        return allBreeds.find((b) => b.name === breed);
+      })
+      .filter((b) => b);
 
     res.send(breeds);
   } catch (error) {
@@ -82,7 +91,7 @@ router.get('/api/breeds/:name', async (req, res) => {
       },
     });
     const [breed] = data;
-    const response = await catWiki.get(`/images/search`, {
+    const { data: imgData } = await catWiki.get(`/images/search`, {
       params: {
         size: 'med',
         limit: 8,
@@ -90,7 +99,7 @@ router.get('/api/breeds/:name', async (req, res) => {
         breed_id: breed.id,
       },
     });
-    const images = response.data.map((image) => image.url);
+    const images = imgData.map((image) => image.url);
     breed.images = images;
 
     res.send(breed);

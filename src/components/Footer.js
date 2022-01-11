@@ -1,9 +1,12 @@
+import { Link } from 'react-router-dom';
 function Footer() {
   return (
     <footer className="footer">
-      <svg className="footer__logo">
-        <use href="/sprites.svg#cat" />
-      </svg>
+      <Link to="/">
+        <svg className="footer__logo">
+          <use href="/sprites.svg#cat" />
+        </svg>
+      </Link>
       <div className="footer__text">
         <span>
           &copy; created by{' '}

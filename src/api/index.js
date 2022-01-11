@@ -21,3 +21,28 @@ export async function getBreed(name) {
     console.error(error);
   }
 }
+
+export async function searchBreeds(q, limit) {
+  try {
+    const response = await axios.get(`/api/breeds/search`, {
+      params: {
+        q,
+        limit,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function logBreedSearch(query) {
+  try {
+    const response = await axios.post(`/api/breeds/search`, {
+      query,
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}

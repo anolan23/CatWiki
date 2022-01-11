@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { getTrending } from '../api';
 import Image from '../components/Image';
+import Search from '../components/Search';
 
 function Home() {
   const [breeds, setBreeds] = useState(null);
@@ -45,10 +46,7 @@ function Home() {
                   Get to know more about your cat breed
                 </p>
               </div>
-              <div className="search-container">
-                <input className="search" placeholder="Enter your breed" />
-                <span className="material-icons search__icon">search</span>
-              </div>
+              <Search />
             </div>
           </div>
           <div className="header__intro__bottom">

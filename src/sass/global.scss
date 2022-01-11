@@ -51,6 +51,11 @@ input {
   margin: 0 9.6rem;
 }
 
+.home {
+  max-width: 1200px;
+  margin: auto;
+}
+
 .header {
   &__intro {
     border-radius: 4rem;
@@ -145,6 +150,7 @@ input {
     align-items: center;
     height: 43px;
     width: 128px;
+    cursor: pointer;
   }
 }
 .search-container {
@@ -262,6 +268,7 @@ input {
     align-items: center;
     height: 43px;
     width: 128px;
+    cursor: pointer;
   }
   &__text {
     color: white;
@@ -273,6 +280,8 @@ input {
 }
 
 .breeds {
+  max-width: 1200px;
+  margin: auto;
   &__about {
     margin: 0 9.6rem;
     display: grid;
@@ -331,5 +340,69 @@ input {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 4.8rem;
     margin: 4rem 0;
+  }
+}
+
+.trending {
+  max-width: 1200px;
+  margin: auto;
+  &__trend-list {
+    display: grid;
+    gap: 5.6rem;
+    margin: 6.4rem 0;
+  }
+
+  &__trend-item {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    gap: 4.8rem;
+    &__image {
+      width: 100%;
+      max-height: 0;
+      padding-top: 100%;
+      background-size: cover;
+      background-position: center;
+      border-radius: 2.4rem;
+    }
+    &__title {
+      &,
+      &:link,
+      &:visited {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    &__paragraph {
+      margin-top: 2.4rem;
+    }
+  }
+}
+
+.search-form {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  z-index: 1;
+  top: calc(100% + 1.6rem);
+  width: 100%;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 2.4rem;
+
+  &__item {
+    padding: 2.2rem 1.6rem;
+    border-radius: 1.2rem;
+    cursor: pointer;
+    &:hover {
+      background: rgb(236, 236, 236);
+    }
+    &__text {
+      color: inherit;
+    }
   }
 }
