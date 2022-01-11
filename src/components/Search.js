@@ -58,13 +58,13 @@ class Search extends Component {
   render() {
     return (
       <form
-        className="search-form"
+        className={`search-form ${this.props.show ? 'search-form__show' : ''}`}
         onSubmit={this._onSubmit.bind(this)}
         ref={this.inputRef}
       >
         <div className="search-container">
           <input
-            className="search"
+            className={`search ${this.props.className}`}
             placeholder="Enter your breed"
             onChange={this._onChange.bind(this)}
             value={this.state.query}

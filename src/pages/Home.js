@@ -4,9 +4,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import { getTrending } from '../api';
 import Image from '../components/Image';
 import Search from '../components/Search';
+import SearchButton from '../components/SearchButton';
+import SearchModal from '../components/SearchModal';
 
 function Home(props) {
   const [breeds, setBreeds] = useState(null);
+  const [showSearchPopup, setShowSearchPopup] = useState(false);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -46,6 +50,7 @@ function Home(props) {
                 </p>
               </div>
               <Search navigate={navigate} />
+              <SearchButton onClick={() => setShowSearchPopup(true)} />
             </div>
           </div>
           <div className="header__intro__bottom">
@@ -106,6 +111,10 @@ function Home(props) {
           </div>
         </div>
       </section>
+      <SearchModal
+        show={showSearchPopup}
+        close={() => setShowSearchPopup(false)}
+      />
     </div>
   );
 }

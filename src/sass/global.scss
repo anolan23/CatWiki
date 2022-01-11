@@ -187,9 +187,6 @@ input {
 }
 .search-container {
   position: relative;
-  @media screen and (max-width: 750px) {
-    display: none;
-  }
 }
 .search {
   width: 100%;
@@ -460,6 +457,12 @@ input {
 
 .search-form {
   position: relative;
+  @media screen and (max-width: 750px) {
+    display: none;
+  }
+  &__show {
+    display: block;
+  }
 }
 
 .dropdown {
@@ -486,5 +489,76 @@ input {
     &__text {
       color: inherit;
     }
+  }
+}
+
+.search-button {
+  align-self: flex-start;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 9999px;
+  font-size: 1.2rem;
+  cursor: pointer;
+
+  @media screen and (min-width: 750px) {
+    display: none;
+  }
+  &__search {
+    padding: 0.8rem 1.6rem;
+
+    outline: none;
+    border: none;
+
+    &__icon {
+      font-size: inherit;
+      display: flex;
+      align-items: center;
+      margin-right: 1.6rem;
+    }
+  }
+}
+
+.modal {
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 3.2rem;
+  @media screen and (min-width: 750px) {
+    display: none;
+  }
+  &__body {
+    height: 100%;
+    overflow: hidden;
+  }
+  &__close {
+    align-self: flex-end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(151, 151, 151, 0.1);
+    border-radius: 8px;
+    height: 50px;
+    width: 50px;
+
+    &__icon {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 3.2rem;
+      color: inherit;
+    }
+  }
+  &__content {
+    margin-top: 3.2rem;
+  }
+  &__search {
+    border: 1px solid;
   }
 }
