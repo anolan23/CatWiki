@@ -1,6 +1,23 @@
-# Getting Started with Create React App
+# CatWiki
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a full stack application all about cats. Everytime a user searches for a breed of cat, the search query is stored and used to determine the most frequently searched breeds. The home page gives a preview of the top 4 most searched breeds. Each one is clickable and will bring you to their individual breed page. If you click 'See more', you will be taken to a page with the top 10 most searched breeds.
+
+
+## Built with
+Reactjs,
+Nodejs/Express,
+PostgresQL
+
+## API
+You can make a GET request to:\
+[/api/breeds](https://aaron-cat-wiki.herokuapp.com/api/breeds)
+\
+[/api/breeds/:name](https://aaron-cat-wiki.herokuapp.com/api/breeds/Abyssinian)
+\
+[/api/breeds/trending](https://aaron-cat-wiki.herokuapp.com/api/breeds/trending)
+
+ 
+to get a preview of data from the API.
 
 ## Available Scripts
 
@@ -27,44 +44,3 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
