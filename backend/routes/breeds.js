@@ -65,10 +65,6 @@ router.get('/api/breeds/trending', async (req, res) => {
     );
     const trending = rows.map((search) => search.query); // ['minx', 'tabby', 'burmese']
     const { data: allBreeds } = await catWiki.get('/breeds'); // all breeds [{}, {}, {}]
-    //only keep trending breeds from breeds array
-    // const breeds = response.data.filter((breed) =>
-    //   trending.includes(breed.name)
-    // );
 
     const breeds = trending
       .map((breed) => {
