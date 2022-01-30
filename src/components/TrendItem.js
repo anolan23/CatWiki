@@ -6,7 +6,7 @@ function TrendItem({ breed, index }) {
     <article className="trending__trend-item">
       <div
         className="trending__trend-item__image"
-        style={{ backgroundImage: `url(${image.url})` }}
+        style={{ backgroundImage: `url(${image?.url})` }}
       />
       <div>
         <Link to={`/breeds/${name}`} className="trending__trend-item__title">

@@ -11,6 +11,7 @@ class Search extends Component {
   }
 
   _closeOnClick(e) {
+    if (!this.inputRef.current) return;
     if (!this.inputRef.current.contains(e.target)) {
       this.setState({ show: false });
     }
